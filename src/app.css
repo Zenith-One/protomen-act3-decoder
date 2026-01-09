@@ -2,9 +2,6 @@
 * {
   font-family: arial;
   box-sizing: border-box;
-  user-select: none;
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
 }
 
 :root {

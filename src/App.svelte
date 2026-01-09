@@ -2,6 +2,7 @@
   import { plaintextArray, getSolutions } from "./lib/decoder-ring";
 
   let app: HTMLElement;
+  // let ciphertext = '31 19 9 7 12 3 6 34 6 34 20 34 31 13 31 15 28 11 23 31 10 8 34 10 10 3 28 34 9 7 12 3 6 34 11 23 34 10 24 3 6 14';
   let ciphertext = '';
   let results: string[];
 
@@ -19,9 +20,6 @@
   .decoder {
     width: 50%;
     margin: 0 auto;
-  }
-
-  .decoder {
     text-align: left;
   }
 
@@ -33,6 +31,16 @@
 
   .decoder ul {
     list-style: none;
+    width: 100%;
+    line-break: anywhere;
+  }
+
+  .decoder li {
+    text-indent: -3.6em;
+    padding-left: 3.6em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
+    width: 100%;
   }
 
   .decoder .output {
@@ -44,6 +52,15 @@
     border: 1px solid #858585;
   }
   
+  @media screen and (max-width: 1000px) {
+    .decoder {
+      width: 100%;
+      padding: 2em;
+      /* Ensures padding stays inside the 100% width */
+      box-sizing: border-box; 
+    }
+  }
+
 </style>
 
 <main>
