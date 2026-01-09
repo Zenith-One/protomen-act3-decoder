@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { getSolutions } from "./lib/decoder-ring";
+  import { plaintextArray, getSolutions } from "./lib/decoder-ring";
 
   let app: HTMLElement;
   let ciphertext = '';
   let results: string[];
 
+  let targetOptions = plaintextArray.slice().sort();
+  let selectedOption = 'A';
+
   function decode() {
-    results = getSolutions(ciphertext);
+    results = getSolutions(ciphertext, selectedOption);
   }
 
 
@@ -28,6 +31,10 @@
     padding: 1em;
   }
 
+  .decoder ul {
+    list-style: none;
+  }
+
   .decoder .output {
     width: 100%;
     min-width: 100%;
@@ -46,6 +53,14 @@
 
       <h2>Ciphertext</h2>
       <p>
+        <label for="target-select">
+          Rotate based on:
+          <select name="target-select" id="target-select" bind:value={selectedOption}>
+            {#each targetOptions as o}
+              <option value={o}>{o}</option>
+            {/each}
+          </select>
+        </label>
         <textarea name='ciphertext' bind:value={ciphertext} placeholder='Numbers here'/>
 
       </p>
